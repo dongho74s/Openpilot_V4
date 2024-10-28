@@ -66,7 +66,7 @@ const CanMsg HYUNDAI_CANFD_HDA2_LONG_TX_MSGS[] = {
   {0x50, 1, 16}, // 
   {0x51, 1, 32}, // 
 
-  {353, 0, 24}, // ADRV_353
+  {353, 0, 32}, // ADRV_353
 };
 
 const CanMsg HYUNDAI_CANFD_HDA1_TX_MSGS[] = {
@@ -423,8 +423,8 @@ static int hyundai_canfd_fwd_hook(int bus_num, int addr) {
               else lkas_msg_acan_active = false;
           }
           // carrot
-          // ADASÀÇ µ¥ÀÌÅÍ°¡ LKAS·Î º¸³»Áö´Â°ÍÀ» ¸·À½. ±Ùµ¥.. ÀÌ°Ç ECANµ¥ÀÌÅÍµéÀÎµ¥?
-          // ÀÏ´Ü »èÁ¦ÇÔ.. ÀÇ¹Ì¾ø¾îº¸ÀÓ.
+          // ADASì˜ ë°ì´í„°ê°€ LKASë¡œ ë³´ë‚´ì§€ëŠ”ê²ƒì„ ë§‰ìŒ. ê·¼ë°.. ì´ê±´ ECANë°ì´í„°ë“¤ì¸ë°?
+          // ì¼ë‹¨ ì‚­ì œí•¨.. ì˜ë¯¸ì—†ì–´ë³´ì„.
           /*
           if (lkas_msg_acan_active) {
               if (addr == 353 || addr == 354 || addr == 908 || addr == 1402 || addr == 1848) {
@@ -488,7 +488,7 @@ static int hyundai_canfd_fwd_hook(int bus_num, int addr) {
       //if (addr == 908) bus_fwd = -1;
       //else if (addr == 1402) bus_fwd = -1;
       //
-      // ¾Æ·¡ÄÚµåÁß ¿ÀÅä»óÇâµîÄÚµå ÀÖÀ½.. ¤»
+      // ì•„ë˜ì½”ë“œì¤‘ ì˜¤í† ìƒí–¥ë“±ì½”ë“œ ìˆìŒ.. ã…‹
       //if (addr == 698) bus_fwd = -1;
       //if (addr == 1848) bus_fwd = -1;
       //if (addr == 1996) bus_fwd = -1;
