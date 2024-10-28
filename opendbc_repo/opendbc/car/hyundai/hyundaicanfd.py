@@ -174,7 +174,7 @@ def create_acc_control_scc2(packer, CAN, enabled, accel_last, accel, stopping, g
   #values["JerkUpperLimit"] = 3.0
   values["JerkLowerLimit"] = jerk_l if enabled else 1
   values["JerkUpperLimit"] = jerk_u
-  values["DISTANCE_SETTING"] = hud_control.leadDistanceBars
+  values["DISTANCE_SETTING"] = hud_control.leadDistanceBars + 5
 
   #values["ACC_ObjDist"] = 1
   #values["ObjValid"] = 0
