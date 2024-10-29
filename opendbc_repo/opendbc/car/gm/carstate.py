@@ -172,7 +172,7 @@ class CarState(CarStateBase):
                       pt_cp.vl["EBCMFrictionBrakeStatus"]["FrictionBrakeUnavailable"] == 1)
     startingState = LongCtrlState.starting
     self.accFaultedCount = self.accFaultedCount + 1 if accFaulted else 0
-    ret.accFaulted = True if self.accFaultedCount > 50 else False
+    ret.accFaulted = True if self.accFaultedCount > 2000 else False
 
     ret.cruiseState.enabled = self.pcm_acc_status != AccState.OFF
     ret.cruiseState.standstill = self.pcm_acc_status == AccState.STANDSTILL
