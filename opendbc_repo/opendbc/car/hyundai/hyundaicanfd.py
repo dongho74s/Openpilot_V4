@@ -260,7 +260,7 @@ def create_fca_warning_light(CP, packer, CAN, frame):
   return ret
 
 
-def create_adrv_messages(CP, packer, CAN, frame, CS, hud_control):
+def create_adrv_messages(CP, packer, CAN, frame, CC, CS, hud_control):
   # messages needed to car happy after disabling
   # the ADAS Driving ECU to do longitudinal control
 
@@ -277,17 +277,21 @@ def create_adrv_messages(CP, packer, CAN, frame, CS, hud_control):
           values["vSetDis"] = int(hud_control.setSpeed * 3.6 + 0.5)
           values["GAP_DIST_SET"] = hud_control.leadDistanceBars
 
-          values["CRUISE_INFO6_SET3"] = 3
-          values["CRUISE_INFO1_SET2"] = 2
-          values["CRUISE_INFO2_SET2"] = 2
-          values["CRUISE_INFO4_SET3"] = 3
-          values["CRUISE_INFO8_SET1"] = 1
-          values["CRUISE_INFO5_SET1"] = 1
+          values["WHEEL_ICON"] = 2 if CC.latActive else 1
+
+          values["CRUISE_INFO6_SET3"] = 3 if CC.enabled else 0
+          values["CRUISE_INFO1_SET2"] = 2 if CC.enabled else 0
+          values["CRUISE_INFO2_SET2"] = 2 if CC.enabled else 0
+          values["CRUISE_INFO4_SET3"] = 3 if CC.enabled else 0
+          values["CRUISE_INFO8_SET1"] = 1 if CC.enabled else 0
+          values["CRUISE_INFO5_SET1"] = 1 if CC.enabled else 0
+          valuse["SET4_HWAY_ELSE_3"] = 3
+
           #values["CRUISE_INFO10_SET1"] = 1
           #values["CRUISE_INFO11_SET1"] = 1
 
-          #values["CRUISE_INFO7_HWAY_SET2_ELSE_0"] = 2
-          #values["CRUISE_INFO9_HWAY_SET2_ELSE_0"] = 2
+          values["CRUISE_INFO7_HWAY_SET2_ELSE_0"] = 0
+          values["CRUISE_INFO9_HWAY_SET2_ELSE_0"] = 0
           #values["NEW_SIGNAL_HWAY_SET1_ELSE_0"] = 1
 
           ret.append(packer.make_can_msg("ADRV_0x161", CAN.ECAN, values))

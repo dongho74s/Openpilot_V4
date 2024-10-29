@@ -770,6 +770,7 @@ VAL_ 304 PARK_BUTTON 1 "Pressed" 2 "Not Pressed";
 VAL_ 304 KNOB_POSITION 1 "R" 2 "N (on R side)" 3 "Centered" 4 "N (on D side)" 5 "D";
 VAL_ 304 GEAR 1 "P" 2 "R" 3 "N" 4 "D" ;
 VAL_ 352 AEB_SETTING 1 "off" 2 "warning only" 3 "active assist" ;
+VAL_ 353 WHEEL_ICON 3 "GREY1" 2 "GREEN" 0 "OFF" 1 "GREY";
 VAL_ 362 BLINKER_CONTROL 1 "hazards" 2 "hazards button backlight" 3 "left blinkers" 4 "right blinkers";
 VAL_ 373 ACCEnable 0 "SCC ready" 1 "SCC temp fault" 2 "SCC permanent fault" 3 "SCC permanent fault, communication issue";
 VAL_ 416 ACCMode 0 "off" 1 "enabled" 2 "driver_override" 3 "off_maybe_fault" 4 "cancelled" ;
